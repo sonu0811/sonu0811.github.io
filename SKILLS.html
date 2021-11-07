@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf=8">
+        <title>SKILLS</title>
+        <link rel="stylesheet" href="css/style3.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+     
+        <style>
+            .b-skills{
+                text-align: center;
+                padding: 45px;
+                
+            }
+
+            .b-skills:last-child{
+                margin-bottom: -30px;
+            }
+
+            .b-skills h1{
+                margin-bottom: 50px;
+                font-weight: 900;
+                text-transform: uppercase;
+                color: #000;
+            }
+
+            .skill-item{
+                position: relative;
+                max-width: 250px;
+                width: 100%;
+                margin-bottom: 30px;
+                color: #fff;
+            }
+
+
+            .chart-container{
+                position: relative;
+                width: 100%;
+                height: 0;
+                padding-top: 100%;
+                margin-bottom: 27px;
+            }
+
+            .skill-item .chart,
+            .skill-item .chart canvas{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100% !important;
+                height: 100% !important;
+            }
+
+            .skill-item .chart:before{
+                content: "";
+                width: 0;
+                height: 100%;
+            }
+
+            .skill-item .chart:before,
+            .skill-item .percent{
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            .skill-item .percent{
+                position: relative;
+                line-height: 1;
+                font-size: 20px;
+                font-weight: 900;
+                z-index: 2;
+            }
+
+            .skill-item .percent:after{
+                content: attr(data-after);
+                font-size: 20px;
+            }
+
+            p{
+                font-weight: 900;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="banner">
+            <div class="navbar">
+                     <img src="../Portfolio/img/logo.png" class="logo">
+                <ul>
+                    <li><a href="F:\Portfolio\HOME.html">Home</a></li>
+                    <li><a href="F:\Portfolio\CONNECT.html">Connect</a></li>
+                    <li><a href="F:\Portfolio\SKILLS.html">Skills</a></li>
+                    <li><a href="F:\Portfolio\ABOUT.html">About</a></li>    
+                </ul>
+            </div>
+           
+            <div class="b-skills">
+                <div class="container">
+                        <h1>SKILLS</h1>
+                        <diV class="row">
+
+                            <div class="col-md-3">
+                                <div class="skill-item center-block">
+                                    <div class="chart-container">
+                                        <div class="chart" data-percent="64" data-bar-color="#009688">
+                                            <span class="percent" data-after="%">64</span>
+                                        </div>
+                                    </div>
+                                    <p>HTML/CSS</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="skill-item center-block">
+                                    <div class="chart-container">
+                                        <div class="chart" data-percent="72" data-bar-color="#009688">
+                                            <span class="percent" data-after="%">72</span>
+                                        </div>
+                                    </div>
+                                    <p>MY SQL/MONGODB</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                <div class="skill-item center-block">
+                                    <div class="chart-container">
+                                        <div class="chart" data-percent="79" data-bar-color="#009688">
+                                            <span class="percent" data-after="%">79</span>
+                                        </div>
+                                    </div>
+                                    <p>JAVA/ORACLE</p>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-md-3">
+                                <div class="skill-item center-block">
+                                    <div class="chart-container">
+                                        <div class="chart" data-percent="82" data-bar-color="#009688">
+                                            <span class="percent" data-after="%">82</span>
+                                        </div>
+                                    </div>
+                                    <p>ANDROID/GITHUB</p>
+                                </div>
+                            </div>
+
+                            
+                        </diV>
+                </div>
+                </div> 
+            </div>
+            <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+            <script src="plugins/jquery.appear.min.js"></script>
+            <script src="jquery.easypiechart.min.js"></script>
+            <script>
+    'use strict';
+
+var $window = $(window);
+
+function run()
+{
+	var fName = arguments[0],
+		aArgs = Array.prototype.slice.call(arguments, 1);
+	try {
+		fName.apply(window, aArgs);
+	} catch(err) {
+		 
+	}
+};
+ 
+/* chart
+================================================== */
+function _chart ()
+{
+	$('.b-skills').appear(function() {
+		setTimeout(function() {
+			$('.chart').easyPieChart({
+				easing: 'easeOutElastic',
+				delay: 3000,
+				barColor: '#369670',
+				trackColor: '#fff',
+				scaleColor: false,
+				lineWidth: 21,
+				trackWidth: 21,
+				size: 250,
+				lineCap: 'round',
+				onStep: function(from, to, percent) {
+					this.el.children[0].innerHTML = Math.round(percent);
+				}
+			});
+		}, 150);
+	});
+};
+ 
+
+$(document).ready(function() {
+  
+	run(_chart);
+  
+    
+});
+
+
+    
+    </script>
+    </body> 
+</html>
